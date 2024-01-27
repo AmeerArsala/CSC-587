@@ -1,0 +1,30 @@
+'on':
+  github:
+    branches:
+      only: main
+jobs:
+  CloneRepo:
+    uses: git-checkout@v1  # clone repo action
+    with:
+      url: context.event.github.url  # see below for where this pionts to
+    outputs:
+      repo:
+        type: volume
+    resources:
+      instance-type: C5
+  #HelloWorld:
+  #  uses: script@v1
+  #  with:
+  #    image: tensorflow/tensorflow:1.14.0-py3
+  #    script: python /inputs/repo/hello.py
+  #  needs:
+  #    - CloneRepo
+  #  inputs:
+  #    repo: CloneRepo.outputs.repo
+  #  resources:
+  #    instance-type: C5
+context:
+  event:
+    github:
+      ref: c0504e8e6ba54e7fe15217c91c3eac5e05603860
+      url: https://github.com/AmeerArsala/CSC-587  # context.event.github.url
