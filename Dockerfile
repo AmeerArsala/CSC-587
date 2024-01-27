@@ -11,4 +11,5 @@ RUN micromamba clean --all --yes
 
 ARG MAMBA_DOCKERFILE_ACTIVATE=1
 
-#RUN pip install pymupdf unstructured
+RUN apt-get update && \
+    apt-get install -y git
