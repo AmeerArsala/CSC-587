@@ -20,11 +20,14 @@ jobs:
       instance-type: C5
   
   GatherModels:
-    uses: script@v1
+    uses: container@v1
     with:
       # For each of these, put `cp -R source dest` to copy from the inputs repo -> outputs dir
-      script: |-
-        cp -R /inputs/repo/hw1/models/lenet /outputs/lenet
+      image: bash:5
+      args:
+        - bash
+        - "-c"
+        - cp -R /inputs/repo/hw1/models/lenet /outputs/lenet
     inputs:
       repo: CloneRepo.outputs.repo
     outputs:
