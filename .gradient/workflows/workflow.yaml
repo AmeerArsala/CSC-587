@@ -49,6 +49,7 @@ jobs:
       type: Tensorflow
     needs:
       - GatherModels
+      - CloneRepo
     inputs:
       model: GatherModels.outputs.models.lenet
     outputs:
