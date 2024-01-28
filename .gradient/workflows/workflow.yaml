@@ -30,12 +30,13 @@ jobs:
         cp -R hw1/models /outputs/models
     inputs:
       repo: CloneRepo.outputs.repo
-    #outputs:
+    outputs:
       # here are the models
-    #  lenet:
-    #    type: dataset
-    #    with:
-    #      ref: lenet-mnist
+      models:
+        lenet:
+          type: dataset
+          with:
+            ref: lenet-mnist
     needs:
       - CloneRepo
     resources:
