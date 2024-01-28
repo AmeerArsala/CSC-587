@@ -1,3 +1,4 @@
+# On push to github repository, do all this with gradient
 'on':
   github:
     branches:
@@ -6,21 +7,50 @@ jobs:
   CloneRepo:
     uses: git-checkout@v1  # clone repo action
     with:
-      url: context.event.github.url  # see below for where this pionts to
+      url: context.event.github.url  # see below for where this points to
     outputs:
       repo:
         type: volume
     resources:
       instance-type: C5
+  
+  GatherModels:
+    resources:
+      instance-type: C5
+    needs:
+      - CloneRepo
+    inputs:
+      repo: CloneRepo.outputs.repo
+    outputs:
+      # here are the models
+      hw1:
+        models:
+          lenet:
+            type: dataset
+            with:
+              ref: mnist-dataset
+    uses: script@v1
+    with:
+      # For each of these, put `cp -R source dest` to copy from the inputs repo -> outputs dir
+      script: |-
+        cd /inputs/repo
+        cp -R /hw1/models /outputs/hw1/models
+
   LeNet_HW1:
     uses: create-model@v1
     with:
-      model: hw1/lenet.keras
-      model-name: lenet-mnist
-      modelVersion: latest
+      name: lenet-mnist
       type: Tensorflow
+    needs:
+      - GatherModels
+    inputs:
+      model: GatherModels.outputs.hw1.models.lenet
+    outputs:
+      model-id:
+        type: string
     resources:
       instance-type: C5
+
 context:
   event:
     github:
