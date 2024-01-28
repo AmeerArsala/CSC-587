@@ -31,8 +31,7 @@ jobs:
     with:
       # For each of these, put `cp -R source dest` to copy from the inputs repo -> outputs dir
       script: |-
-        cd /inputs/repo
-        cp /hw1/models/lenet /outputs/lenet
+        cp /inputs/repo/hw1/models/lenet /outputs/lenet
 
 context:
   event:
