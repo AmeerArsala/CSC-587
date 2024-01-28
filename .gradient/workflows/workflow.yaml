@@ -38,7 +38,7 @@ jobs:
   LeNet_HW1:
     uses: create-model@v1
     with:
-      name: lenet-mnist
+      name: lenet
       type: Tensorflow
     needs:
       - GatherModels
