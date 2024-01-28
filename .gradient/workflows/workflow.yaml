@@ -27,7 +27,7 @@ jobs:
       lenet:
         type: dataset
         with:
-          ref: dsevd3p13fnuea2
+          ref: demo-dataset
     uses: script@v1
     with:
       # For each of these, put `cp -R source dest` to copy from the inputs repo -> outputs dir
