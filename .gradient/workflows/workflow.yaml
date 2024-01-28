@@ -31,7 +31,6 @@ jobs:
     inputs:
       repo: CloneRepo.outputs.repo
     outputs:
-      # here are the models
       models:
         lenet:
           type: dataset
