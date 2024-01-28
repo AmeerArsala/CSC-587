@@ -3,6 +3,11 @@
   github:
     branches:
       only: main
+
+defaults:
+  env:
+    apiKey: secret:GRADIENT_API_KEY
+
 jobs:
   CloneRepo:
     uses: git-checkout@v1  # clone repo action
