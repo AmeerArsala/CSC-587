@@ -30,7 +30,11 @@ jobs:
         cp -R hw1/models/lenet.keras /outputs/hw1_lenet
     inputs:
       repo: CloneRepo.outputs.repo
-    #outputs:
+    outputs:
+      hw1_lenet:
+        type: dataset
+        with:
+          ref: lenet-mnist
     #  models:
     #    lenet:
     #      type: dataset
