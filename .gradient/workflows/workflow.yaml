@@ -28,7 +28,7 @@ jobs:
       args:
         - bash
         - "-c"
-        - ls #cp -R /inputs/repo/hw1/models/lenet /outputs/lenet
+        - cp -R /inputs/repo/hw1/models/lenet /outputs/lenet
     inputs:
       repo: CloneRepo.outputs.repo
     #outputs:
