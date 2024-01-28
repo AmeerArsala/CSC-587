@@ -41,6 +41,21 @@ jobs:
     resources:
       instance-type: C5
 
+  LeNet_HW1:
+    uses: create-model@v1
+    with:
+      name: lenet
+      type: Tensorflow
+    needs:
+      - GatherModels
+    inputs:
+      model: GatherModels.outputs.lenet
+    outputs:
+      model-id:
+        type: string
+    resources:
+      instance-type: C5
+    
 context:
   event:
     github:
