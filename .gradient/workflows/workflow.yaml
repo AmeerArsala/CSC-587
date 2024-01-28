@@ -14,27 +14,7 @@ jobs:
     resources:
       instance-type: C5
   
-  GatherModels:
-    resources:
-      instance-type: C5
-    needs:
-      - CloneRepo
-    inputs:
-      repo: CloneRepo.outputs.repo
-    outputs:
-      # here are the models
-      hw1:
-        models:
-          lenet:
-            type: dataset
-            with:
-              ref: mnist-dataset
-    uses: script@v1
-    with:
-      # For each of these, put `cp -R source dest` to copy from the inputs repo -> outputs dir
-      script: |-
-        cd /inputs/repo
-        cp -R /hw1/models /outputs/hw1/models
+
 
 context:
   event:
