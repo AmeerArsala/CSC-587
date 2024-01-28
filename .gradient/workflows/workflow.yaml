@@ -12,17 +12,20 @@ jobs:
         type: volume
     resources:
       instance-type: C5
-  #HelloWorld:
-  #  uses: script@v1
-  #  with:
-  #    image: tensorflow/tensorflow:1.14.0-py3
-  #    script: python /inputs/repo/hello.py
-  #  needs:
-  #    - CloneRepo
-  #  inputs:
-  #    repo: CloneRepo.outputs.repo
-  #  resources:
-  #    instance-type: C5
+  LeNet_HW1:
+    uses: create-model@v1
+    with:
+      model: lenet
+      type: Tensorflow
+    inputs:
+      model: hw1/lenet.keras
+    outputs:
+      model-id:
+        type: string
+    needs:
+      - CloneRepo
+    resources:
+      instance-type: C5
 context:
   event:
     github:
