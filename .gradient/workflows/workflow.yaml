@@ -14,7 +14,42 @@ jobs:
     resources:
       instance-type: C5
   
+  GatherModels:
+    resources:
+      instance-type: C5
+    needs:
+      - CloneRepo
+    inputs:
+      repo: CloneRepo.outputs.repo
+    outputs:
+      # here are the models
+      
+      lenet:
+        type: dataset
+        with:
+          ref: lenet
+    uses: script@v1
+    with:
+      # For each of these, put `cp -R source dest` to copy from the inputs repo -> outputs dir
+      script: |-
+        cd /inputs/repo
+        cp -R /hw1/models/lenet.keras /outputs/lenet.keras
 
+  LeNet_HW1:
+    uses: create-model@v1
+    with:
+      name: lenet-mnist
+      type: Tensorflow
+    needs:
+      - GatherModels
+      - CloneRepo
+    inputs:
+      model: GatherModels.outputs.lenet
+    outputs:
+      model-id:
+        type: string
+    resources:
+      instance-type: C5
 
 context:
   event:
