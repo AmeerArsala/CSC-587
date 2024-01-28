@@ -32,10 +32,11 @@ jobs:
       repo: CloneRepo.outputs.repo
     outputs:
       # here are the models
-      lenet:
-        type: dataset
-        with:
-          ref: lenet-mnist
+      models:
+        lenet:
+          type: dataset
+          with:
+            ref: lenet-mnist
     needs:
       - CloneRepo
     resources:
@@ -44,12 +45,12 @@ jobs:
   LeNet_HW1:
     uses: create-model@v1
     with:
-      name: lenet
+      name: lenet-mnist
       type: Tensorflow
     needs:
       - GatherModels
     inputs:
-      model: GatherModels.outputs.lenet
+      model: GatherModels.outputs.models.lenet
     outputs:
       model-id:
         type: string
