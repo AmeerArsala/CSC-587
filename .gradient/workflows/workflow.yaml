@@ -27,14 +27,15 @@ jobs:
       script: |-
         echo "Hello World!"
         cd /inputs/repo
-        cp -R hw1/models /outputs/models
+        cp -R hw1/models/lenet /outputs/hw1_lenet
     inputs:
       repo: CloneRepo.outputs.repo
-    outputs:
-      models:
-        type: dataset
-        with:
-          ref: lenet-mnist
+    #outputs:
+    #  models:
+    #    lenet:
+    #      type: dataset
+    #      with:
+    #        ref: lenet-mnist
     needs:
       - CloneRepo
     resources:
