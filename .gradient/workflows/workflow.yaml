@@ -27,7 +27,7 @@ jobs:
       script: |-
         echo "Hello World!"
         cd /inputs/repo
-        cp -R hw1/models/lenet /outputs/lenet
+        cp -R hw1/models /outputs/models
     inputs:
       repo: CloneRepo.outputs.repo
     #outputs:
