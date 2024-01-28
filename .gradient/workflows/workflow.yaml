@@ -24,18 +24,13 @@ jobs:
     with:
       # For each of these, put `cp -R source dest` to copy from the inputs repo -> outputs dir
       image: bash:5
-      args:
-        - bash
-        - "-c"
-        - ls
+      args: ["echo", "hello", "world"]
+      #args:
+      #  - bash
+      #  - "-c"
+      #  - ls #cp -R /inputs/repo/hw1/models/lenet /outputs/lenet
     inputs:
       repo: CloneRepo.outputs.repo
-    outputs:
-      # here are the models
-      lenet:
-        type: dataset
-        with:
-          ref: lenet-mnist
     needs:
       - CloneRepo
     resources:
