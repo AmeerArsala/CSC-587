@@ -29,8 +29,14 @@ jobs:
       #  - bash
       #  - "-c"
       #  - ls #cp -R /inputs/repo/hw1/models/lenet /outputs/lenet
-    inputs:
-      repo: CloneRepo.outputs.repo
+    #inputs:
+    #  repo: CloneRepo.outputs.repo
+    #outputs:
+      # here are the models
+    #  lenet:
+    #    type: dataset
+    #    with:
+    #      ref: lenet-mnist
     needs:
       - CloneRepo
     resources:
