@@ -34,7 +34,7 @@ jobs:
       hw1_lenet:
         type: dataset
         with:
-          ref: lenet-mnist
+          ref: demo-dataset
     #  models:
     #    lenet:
     #      type: dataset
