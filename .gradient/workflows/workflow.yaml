@@ -26,8 +26,6 @@ jobs:
       image: bash:latest
       #args: ["echo", "hello", "world"]
       args:
-        #- bash
-        #- "-c"
         - cp -R /inputs/repo/hw1/models/lenet /outputs/lenet
     inputs:
       repo: CloneRepo.outputs.repo
