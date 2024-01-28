@@ -27,10 +27,10 @@ jobs:
       script: |-
         echo "Hello World!"
         cd /inputs/repo
-        cp -R hw1/models/* /outputs/hw1_lenet
+        cp -R hw1/models/lenet.keras /outputs/hw1_lenet.keras
     inputs:
       repo: CloneRepo.outputs.repo
-    outputs:
+    #outputs:
     #  models:
     #    lenet:
     #      type: dataset
