@@ -15,15 +15,10 @@ jobs:
   LeNet_HW1:
     uses: create-model@v1
     with:
-      model: lenet
-      type: Tensorflow
-    inputs:
       model: hw1/lenet.keras
-    outputs:
-      model-id:
-        type: string
-    needs:
-      - CloneRepo
+      model-name: lenet-mnist
+      modelVersion: latest
+      type: Tensorflow
     resources:
       instance-type: C5
 context:
