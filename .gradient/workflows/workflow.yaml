@@ -19,31 +19,26 @@ jobs:
     resources:
       instance-type: C5
   
-  GatherModels:
-    uses: script@v1
-    with:
+# GatherModels:
+#    uses: script@v1
+#    with:
       # For each of these, put `cp -R source dest` to copy from the inputs repo -> outputs dir
-      image: bash:latest
-      script: |-
-        echo "Hello World!"
-        cd /inputs/repo
-        cp -R hw1/models /outputs/models_hw1
-    inputs:
-      repo: CloneRepo.outputs.repo
-    outputs:
-      models_hw1:
-        type: dataset
-        with:
-          ref: dssectbm5sbshxm
-    #  models:
-    #    lenet:
-    #      type: dataset
-    #      with:
-    #        ref: lenet-mnist
-    needs:
-      - CloneRepo
-    resources:
-      instance-type: C5
+#      image: bash:latest
+#      script: |-
+#        echo "Hello World!"
+#        cd /inputs/repo
+#        cp -R hw1/models /outputs/models_hw1
+#    inputs:
+#      repo: CloneRepo.outputs.repo
+#    outputs:
+#      models_hw1:
+#        type: dataset
+#        with:
+#          ref: mnist
+#    needs:
+#      - CloneRepo
+#    resources:
+#      instance-type: C5
     
 context:
   event:
