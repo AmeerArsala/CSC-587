@@ -27,7 +27,7 @@ jobs:
       args:
         - bash
         - "-c"
-        - cp -R /inputs/repo/hw1/models/lenet /outputs/lenet
+        - ls
     inputs:
       repo: CloneRepo.outputs.repo
     outputs:
@@ -40,7 +40,6 @@ jobs:
       - CloneRepo
     resources:
       instance-type: C5
-    
 
 context:
   event:
