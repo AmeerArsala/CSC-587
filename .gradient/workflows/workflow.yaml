@@ -34,7 +34,7 @@ jobs:
       models_hw1:
         type: dataset
         with:
-          ref: mnist
+          ref: dssectbm5sbshxm
     #  models:
     #    lenet:
     #      type: dataset
