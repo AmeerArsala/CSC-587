@@ -15,10 +15,11 @@ jobs:
       instance-type: C5
   
   GatherModels:
-    resources:
-      instance-type: C5
-    needs:
-      - CloneRepo
+    uses: script@v1
+    with:
+      # For each of these, put `cp -R source dest` to copy from the inputs repo -> outputs dir
+      script: |-
+        cp -R /inputs/repo/hw1/models/lenet /outputs/lenet
     inputs:
       repo: CloneRepo.outputs.repo
     outputs:
@@ -27,11 +28,11 @@ jobs:
         type: dataset
         with:
           ref: lenet-mnist
-    uses: script@v1
-    with:
-      # For each of these, put `cp -R source dest` to copy from the inputs repo -> outputs dir
-      script: |-
-        cp /inputs/repo/hw1/models/lenet /outputs/lenet
+    needs:
+      - CloneRepo
+    resources:
+      instance-type: C5
+    
 
 context:
   event:
