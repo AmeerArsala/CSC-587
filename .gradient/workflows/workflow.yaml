@@ -32,11 +32,10 @@ jobs:
       repo: CloneRepo.outputs.repo
     outputs:
       # here are the models
-      models:
-        lenet:
-          type: dataset
-          with:
-            ref: lenet-mnist
+      lenet:
+        type: dataset
+        with:
+          ref: lenet-mnist
     needs:
       - CloneRepo
     resources:
