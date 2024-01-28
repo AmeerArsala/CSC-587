@@ -26,8 +26,8 @@ jobs:
       image: bash:latest
       script: |-
         echo "Hello World!"
-        pwd
-        cp -R /inputs/repo/hw1/models/lenet /outputs/lenet
+        cd /inputs/repo
+      # cp -R /inputs/repo/hw1/models/lenet /outputs/lenet
     inputs:
       repo: CloneRepo.outputs.repo
     #outputs:
